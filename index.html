@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Convento Padre</title>
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo">
+                <a href="#"><img src="images/logo.png" alt="Logo"></a>
+            </div>
+            <div class="search-container">
+                <div class="search-icon">
+                    <img src="images/search.svg" alt="Search Icon">
+                </div>
+                <input type="text" class="search-input" placeholder="Pesquisar...">
+            </div>
+        </header>
+
+        <div id="main-content">
+            <div id="banner-container" class="banner-container">
+                <!-- Banners serão carregados dinamicamente aqui -->
+            </div>
+
+            <section class="lancamentos" id="compras" style="display: none;">
+                <div class="lancamentos-header">
+                    <h2 class="lancamentos-title title-with-icon">Suas compras</h2>
+                    <a href="#" class="ver-todos">Ver todos</a>
+                </div>
+                <div id="compras-container" class="cards-container">
+                    <!-- Cards serão carregados dinamicamente aqui -->
+                </div>
+            </section>
+
+            <section class="lancamentos" id="lancamentos">
+                <div class="lancamentos-header">
+                    <h2 class="lancamentos-title title-with-icon">Lançamentos</h2>
+                    <!--<a href="#" class="ver-todos">Ver todos</a>-->
+                </div>
+                <div id="lancamentos-container" class="cards-container">
+                    <!-- Cards serão carregados dinamicamente aqui -->
+                </div>
+            </section>
+
+            <section class="mais-vendidos" id="mais-vendidos">
+                <div class="lancamentos-header">
+                    <h2 class="sell-title title-with-icon">Mais Vendidos</h2>
+                    <!-- <a href="#" class="ver-todos">Ver todos</a> -->
+                </div>
+                <div id="mais-vendidos-container" class="cards-container">
+                    <!-- Cards serão carregados dinamicamente aqui -->
+                </div>
+            </section>
+
+            <section class="filmes" id="filmes">
+                <div class="lancamentos-header">
+                    <h2 class="filmes-title title-with-icon">Filmes</h2>
+                    <a href="?categoria=Filme" class="ver-todos">Ver todos</a>
+                </div>
+                <div id="filmes-container" class="cards-container">
+                    <!-- Cards serão carregados dinamicamente aqui -->
+                </div>
+            </section>
+
+            <section class="series" id="series">
+                <div class="lancamentos-header">
+                    <h2 class="series-title title-with-icon">Séries</h2>
+                    <a href="?categoria=Série" class="ver-todos">Ver todos</a>
+                </div>
+                <div id="series-container" class="cards-container">
+                    <!-- Cards serão carregados dinamicamente aqui -->
+                </div>
+            </section>
+
+            <section class="anime" id="anime">
+                <div class="lancamentos-header">
+                    <h2 class="anime-title title-with-icon">Anime</h2>
+                    <a href="?categoria=Anime" class="ver-todos">Ver todos</a>
+                </div>
+                <div id="anime-container" class="cards-container">
+                    <!-- Cards serão carregados dinamicamente aqui -->
+                </div>
+            </section>
+
+            <section class="reels" id="reels">
+                <div class="lancamentos-header">
+                    <h2 class="reels-title title-with-icon">Reels</h2>
+                    <a href="?categoria=Reels" class="ver-todos">Ver todos</a>
+                </div>
+                <div id="reels-container" class="cards-container">
+                    <!-- Cards serão carregados dinamicamente aqui -->
+                </div>
+            </section>
+        </div>
+
+        <section class="pesquisa" id="pesquisa" style="display: none;">
+            <div class="lancamentos-header">
+                <h2 class="pesquisa-title title-with-icon">Resultados:</h2>
+            </div>
+            <div id="pesquisa-container" class="cards-container">
+                <!-- Cards serão carregados dinamicamente aqui -->
+            </div>
+        </section>
+
+        <section class="pesquisa" id="category" style="display: none;">
+            <div class="lancamentos-header">
+                <h2 id="resultH2" class="pesquisa-title title-with-icon">Resultados:</h2>
+            </div>
+            <div id="category-container" class="cards-container">
+                <!-- Cards serão carregados dinamicamente aqui -->
+            </div>
+        </section>
+
+        <!-- Nova seção pop-up -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <button class="close-popup">X</button> <!-- Botão de fechar -->
+                <img id="popup-image" src="" alt="Movie Poster" class="popup-image">
+                <div class="popup-text">
+                    <h2 id="popup-title" class="popup-title"></h2>
+                    <p id="popup-synopsis" class="popup-synopsis"></p>
+                    <div class="popup-price-and-button">
+                        <span class="popup-price" id="popup-price-span">
+                            <span class="old-price-wrapper"><span id="popup-old-price" class="old-price"></span></span><br>
+                            <span id="popup-new-price" class="new-price">Por: </span>
+                        </span>
+                        <button class="popup-btn">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function sendDataToBot(id, name, price, channelId) {
+                const data = { id: id, name: name, price: price, channelId: channelId };
+                Telegram.WebApp.sendData(JSON.stringify(data));
+            }
+        </script>
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+        <script src="./scripts/fetch.js"></script>
+        <script src="./scripts/main.js"></script>
+        <script src="./scripts/search.js"></script>
+    </body>
+
+</html>
