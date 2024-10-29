@@ -1,30 +1,22 @@
 <?php
-$directory = './images/MODELOS';
-$modelos = [];
+$directory = './images/modelos/Afrogaybe';
+$modelo = null;
 
 if (is_dir($directory)) {
-    $dirs = scandir($directory);
-    foreach ($dirs as $dir) {
-        if ($dir !== '.' && $dir !== '..') {
-            $modelDir = "$directory/$dir";
-            if (is_dir($modelDir)) {
-                $files = scandir($modelDir);
-                foreach ($files as $file) {
-                    if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'jpg') {
-                        $imagePath = "$modelDir/$file";
-                        $modelos[] = [
-                            'id' => $dir,
-                            'name' => $dir,
-                            'image' => $imagePath
-                        ];
-                        break; // Assume que há apenas uma imagem por modelo
-                    }
-                }
-            }
+    $files = scandir($directory);
+    foreach ($files as $file) {
+        if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'jpg') {
+            $imagePath = "$directory/$file";
+            $modelo = [
+                'id' => 'Afrogaybe',
+                'name' => 'Afrogaybe',
+                'image' => $imagePath
+            ];
+            break; // Encontrou a imagem, não precisa continuar
         }
     }
 }
 
 header('Content-Type: application/json');
-echo json_encode($modelos);
+echo json_encode($modelo);
 ?>
