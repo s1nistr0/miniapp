@@ -10,7 +10,7 @@ if (is_dir($directory)) {
             if (is_dir($modelDir)) {
                 $files = scandir($modelDir);
                 foreach ($files as $file) {
-                    if (pathinfo($file, PATHINFO_EXTENSION) === 'jpg') {
+                    if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'jpg') {
                         $imagePath = "$modelDir/$file";
                         $modelos[] = [
                             'id' => $dir,
