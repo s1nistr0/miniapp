@@ -1,5 +1,5 @@
 <?php
-$directory = './images/modelos/Afrogaybe';
+$directory = './images/modelos/Afrogaybe/';
 $modelo = null;
 
 if (is_dir($directory)) {
